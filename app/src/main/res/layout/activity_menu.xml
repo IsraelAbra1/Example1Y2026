@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#F5F5F5"
+    tools:context=".MenuActivity">
+
+    <TextView
+        android:id="@+id/welcome_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/welcome_message"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="24dp"
+        android:textColor="@color/black" />
+
+    <GridLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:alignmentMode="alignMargins"
+        android:columnOrderPreserved="false"
+        android:useDefaultMargins="true">
+
+        <LinearLayout
+            android:id="@+id/btnlistbooks"
+            style="@style/GridItemStyle">
+            <ImageButton
+                style="@style/GridIconStyle"
+                android:src="@drawable/ic_launcher_foreground"
+                android:contentDescription="List Books"
+                android:background="@android:color/transparent"
+                android:clickable="false"
+                android:focusable="false" />
+            <TextView
+                style="@style/GridTextStyle"
+                android:text="רשימת ספרים" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btnaddbook"
+            style="@style/GridItemStyle">
+            <ImageButton
+                style="@style/GridIconStyle"
+                android:src="@drawable/ic_launcher_foreground"
+                android:contentDescription="Add Book"
+                android:background="@android:color/transparent"
+                android:clickable="false"
+                android:focusable="false" />
+            <TextView
+                style="@style/GridTextStyle"
+                android:text="הוספת ספר" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btninstructions"
+            style="@style/GridItemStyle">
+            <ImageButton
+                style="@style/GridIconStyle"
+                android:src="@drawable/ic_launcher_foreground"
+                android:contentDescription="Instructions"
+                android:background="@android:color/transparent"
+                android:clickable="false"
+                android:focusable="false" />
+            <TextView
+                style="@style/GridTextStyle"
+                android:text="מדריך למשתמש" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btnAi"
+            style="@style/GridItemStyle">
+            <ImageButton
+                style="@style/GridIconStyle"
+                android:src="@drawable/ic_launcher_foreground"
+                android:contentDescription="AI"
+                android:background="@android:color/transparent"
+                android:clickable="false"
+                android:focusable="false" />
+            <TextView
+                style="@style/GridTextStyle"
+                android:text="AI" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btnlogout"
+            style="@style/GridItemStyle">
+            <ImageButton
+                style="@style/GridIconStyle"
+                android:src="@drawable/ic_launcher_foreground"
+                android:contentDescription="Logout"
+                android:background="@android:color/transparent"
+                android:clickable="false"
+                android:focusable="false" />
+            <TextView
+                style="@style/GridTextStyle"
+                android:text="יציאה" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/btnSettings"
+            style="@style/GridItemStyle">
+            <ImageButton
+                style="@style/GridIconStyle"
+                android:src="@drawable/ic_launcher_foreground"
+                android:contentDescription="Settings"
+                android:background="@android:color/transparent"
+                android:clickable="false"
+                android:focusable="false" />
+            <TextView
+                style="@style/GridTextStyle"
+                android:text="הגדרות" />
+        </LinearLayout>
+
+    </GridLayout>
+
+</LinearLayout>

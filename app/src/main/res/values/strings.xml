@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Example1</string>
+    <string name="welcome_message">Welcome, %1$s!</string>
+    <string name="instructions_title">הוראות</string>
+    <string name="instructions_placeholder">כאן יופיעו הוראות השימוש באפליקציה.</string>
+    <string name="instructions_content">כיצד להשתמש באפליקציה: לחץ על רשימת ספרים כדי לראות את הספרים שלך, או על הוספת ספר כדי להוסיף אחד חדש.</string>
+    <string name="english_content">how to use this app will be explained here</string>
+    <string name="ai_activity_title">AI Activity</string>
+    <string name="ai_welcome_message">Welcome to the AI features!</string>
+    <string name="settings_title">הגדרות</string>
+    <string name="api_key_label">Gemini API Key:</string>
+    <string name="enter_api_key">Enter API Key</string>
+    <string name="save">שמור</string>
+    <string name="back">חזור</string>
+    <string name="api_key_saved">API Key saved</string>
+    <string name="choose_color">בחר צבע רקע:</string>
+    <string-array name="colors_array">
+        <item>לבן</item>
+        <item>תכלת</item>
+        <item>אפור בהיר</item>
+        <item>ורוד בהיר</item>
+    </string-array>
+</resources>
