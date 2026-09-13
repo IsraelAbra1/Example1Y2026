@@ -18,6 +18,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Example1">
         <activity
+            android:name=".InstructionInHebrew"
+            android:exported="false" />
+        <activity
+            android:name=".InstructionActivity2"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -26,7 +32,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".MenuActivity" />
         <activity android:name=".InstructionActivity" />
         <activity android:name=".AiActivity" />
