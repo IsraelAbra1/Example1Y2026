@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+
     private void applyBackgroundColor() {
         SharedPreferences prefs = getSharedPreferences("gemini_prefs", MODE_PRIVATE);
         String savedColorName = prefs.getString("bg_color_name", "לבן");

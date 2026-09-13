@@ -41,12 +41,13 @@ public class SettingActivity extends AppCompatActivity {
             }
         }
         spinnerColors.setSelection(savedColorIndex);
-        updateBackgroundColor(savedColorIndex);
+        applyBackgroundColor(savedColorName);
 
         spinnerColors.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                updateBackgroundColor(position);
+                String selectedColor = parent.getItemAtPosition(position).toString();
+                applyBackgroundColor(selectedColor);
             }
 
             @Override
@@ -74,14 +75,22 @@ public class SettingActivity extends AppCompatActivity {
         });
     }
 
-    private void updateBackgroundColor(int index) {
+    private void applyBackgroundColor(String colorName) {
         int colorRes;
-        switch (index) {
-            case 1: colorRes = R.color.light_blue; break;
-            case 2: colorRes = R.color.light_grey; break;
-            case 3: colorRes = R.color.light_pink; break;
-            case 0:
-            default: colorRes = R.color.white; break;
+        switch (colorName) {
+            case "תכלת":
+                colorRes = R.color.light_blue;
+                break;
+            case "אפור בהיר":
+                colorRes = R.color.light_grey;
+                break;
+            case "ורוד בהיר":
+                colorRes = R.color.light_pink;
+                break;
+            case "לבן":
+            default:
+                colorRes = R.color.white;
+                break;
         }
         mainLayout.setBackgroundColor(ContextCompat.getColor(this, colorRes));
     }

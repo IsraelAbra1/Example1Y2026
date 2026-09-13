@@ -1,5 +1,6 @@
 package com.example.example1;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.UtteranceProgressListener;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import java.util.Locale;
 
@@ -23,6 +25,8 @@ public class InstructionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_instruction);
+
+        applyBackgroundColor();
 
         btn = findViewById(R.id.btn);
         tvInstructions = findViewById(R.id.tvInstructions);
@@ -69,5 +73,32 @@ public class InstructionActivity extends AppCompatActivity {
             textToSpeech.shutdown();
         }
         super.onDestroy();
+    }
+
+    private void applyBackgroundColor() {
+        SharedPreferences prefs = getSharedPreferences("gemini_prefs", MODE_PRIVATE);
+        String savedColorName = prefs.getString("bg_color_name", "לבן");
+
+        int colorRes;
+        switch (savedColorName) {
+            case "תכלת":
+                colorRes = R.color.light_blue;
+                break;
+            case "אפור בהיר":
+                colorRes = R.color.light_grey;
+                break;
+            case "ורוד בהיר":
+                colorRes = R.color.light_pink;
+                break;
+            case "לבן":
+            default:
+                colorRes = R.color.white;
+                break;
+        }
+
+        View layout = findViewById(R.id.instructionMainLayout);
+        if (layout != null) {
+            layout.setBackgroundColor(ContextCompat.getColor(this, colorRes));
+        }
     }
 }
