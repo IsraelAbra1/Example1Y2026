@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/addBookMainLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="הוספת ספר חדש"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        android:textColor="@color/black" />
+
+    <EditText
+        android:id="@+id/etBookTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="שם הספר"
+        android:inputType="text"
+        android:layout_marginBottom="16dp" />
+
+    <EditText
+        android:id="@+id/etBookAuthor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="שם המחבר"
+        android:inputType="text"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/btnSaveBook"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="שמור ספר"
+        android:layout_marginBottom="12dp" />
+
+    <Button
+        android:id="@+id/btnBackFromAdd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="חזור"
+        style="@style/Widget.AppCompat.Button.Borderless" />
+
+</LinearLayout>

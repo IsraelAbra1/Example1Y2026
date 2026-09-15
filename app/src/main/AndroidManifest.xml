@@ -33,6 +33,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".MenuActivity" />
+        <activity android:name=".AddBookActivity" android:exported="false" />
         <activity android:name=".InstructionActivity" />
         <activity android:name=".AiActivity" />
         <activity android:name=".SettingActivity" />

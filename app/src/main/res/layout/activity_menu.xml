@@ -35,8 +35,8 @@
             style="@style/GridItemStyle">
             <ImageButton
                 style="@style/GridIconStyle"
-                android:src="@drawable/ic_launcher_foreground"
-                android:contentDescription="List Books"
+                android:src="@drawable/books"
+                android:contentDescription="@string/list_books"
                 android:background="@android:color/transparent"
                 android:clickable="false"
                 android:focusable="false" />
