@@ -1,6 +1,7 @@
 package com.example.example1.gemini;
 
 import android.graphics.Bitmap;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 
@@ -30,6 +31,9 @@ public class GeminiManager {
     }
 
     private void initModel() {
+        if (apiKey == null || apiKey.isEmpty()) {
+            Log.e("GeminiManager", "API Key is missing! Add 'gemini.api.key' to local.properties and Rebuild Project.");
+        }
         gemini = new GenerativeModel(
                 "gemini-3.5-flash-lite",
                 apiKey
