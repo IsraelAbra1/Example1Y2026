@@ -36,6 +36,7 @@
         <activity android:name=".InstructionActivity" />
         <activity android:name=".AiActivity" />
         <activity android:name=".SettingActivity" />
+        <activity android:name=".BooksListActivity" android:exported="false" />
     </application>
 
 </manifest>

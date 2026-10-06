@@ -52,6 +52,15 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
+        LinearLayout btnListBooks = findViewById(R.id.btnlistbooks);
+        btnListBooks.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MenuActivity.this, BooksListActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
         LinearLayout btnAi = findViewById(R.id.btnAi);
         btnAi.setOnClickListener(new View.OnClickListener() {
