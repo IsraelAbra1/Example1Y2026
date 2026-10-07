@@ -12,6 +12,8 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -44,9 +46,14 @@ public class BooksListActivity extends AppCompatActivity {
         adapter = new BooksAdapter(bookList);
         rvBooks.setAdapter(adapter);
 
-        mDatabase = FirebaseDatabase.getInstance().getReference("books");
-        
-        fetchBooks();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            mDatabase = FirebaseDatabase.getInstance().getReference("users").child(user.getUid()).child("books");
+            fetchBooks();
+        } else {
+            Toast.makeText(this, "משתמש לא מחובר", Toast.LENGTH_SHORT).show();
+            finish();
+        }
 
         btnBack.setOnClickListener(v -> finish());
     }

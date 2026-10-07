@@ -29,10 +29,12 @@
             android:background="#D9B7A1"
             android:layout_marginTop="40dp"
             android:padding="8dp"
-            android:hint="שם"
+            android:hint="אימייל"
             android:drawableLeft="#D9B7A1"
             android:textColor="@color/black"
-            android:drawablePadding="8dp"/>
+            android:drawablePadding="8dp"
+            android:inputType="textEmailAddress"
+            android:autofillHints="emailAddress"/>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -44,7 +46,8 @@
             android:hint="סיסמה"
             android:drawableLeft="#D9B7A1"
             android:textColor="@color/black"
-            android:drawablePadding="8dp"/>
+            android:drawablePadding="8dp"
+            android:autofillHints="password"/>
 
         <Button
             android:id="@+id/login_button"
@@ -53,6 +56,16 @@
             android:layout_marginTop="30dp"
             android:backgroundTint="#9C27B0"
             android:text="התחברות"
+            android:textSize="18sp"
+            app:cornerRadius="20dp" />
+
+        <Button
+            android:id="@+id/btn_register"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="#E91E63"
+            android:text="הרשמה"
             android:textSize="18sp"
             app:cornerRadius="20dp" />
 

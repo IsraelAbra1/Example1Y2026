@@ -5,6 +5,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,13 +15,19 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class MainActivity extends AppCompatActivity {
+
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+
+        mAuth = FirebaseAuth.getInstance();
         
         applyBackgroundColor();
 
@@ -30,17 +38,45 @@ public class MainActivity extends AppCompatActivity {
         });
 
         EditText loginEmail = findViewById(R.id.login_email);
+        EditText loginPassword = findViewById(R.id.login_password);
         Button loginButton = findViewById(R.id.login_button);
+        Button btnRegister = findViewById(R.id.btn_register);
+        TextView signUpRedirectText = findViewById(R.id.signUpRedirectText);
 
         loginButton.setOnClickListener(v -> {
-            String name = loginEmail.getText().toString();
-            if (name.isEmpty()) {
-                loginEmail.setError("Please enter your name");
+            String email = loginEmail.getText().toString().trim();
+            String password = loginPassword.getText().toString().trim();
+
+            if (email.isEmpty()) {
+                loginEmail.setError("אנא הזן אימייל");
                 return;
             }
-            Intent intent = new Intent(MainActivity.this, MenuActivity.class);
-            intent.putExtra("USER_NAME", name);
-            startActivity(intent);
+            if (password.isEmpty()) {
+                loginPassword.setError("אנא הזן סיסמה");
+                return;
+            }
+
+            mAuth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this, task -> {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(MainActivity.this, "התחברות הצליחה", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(MainActivity.this, MenuActivity.class);
+                            intent.putExtra("USER_NAME", email);
+                            startActivity(intent);
+                            finish();
+                        } else {
+                            Toast.makeText(MainActivity.this, "התחברות נכשלה: " + task.getException().getMessage(),
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        });
+
+        btnRegister.setOnClickListener(v -> {
+            startActivity(new Intent(MainActivity.this, SignupActivity.class));
+        });
+
+        signUpRedirectText.setOnClickListener(v -> {
+            startActivity(new Intent(MainActivity.this, SignupActivity.class));
         });
     }
 

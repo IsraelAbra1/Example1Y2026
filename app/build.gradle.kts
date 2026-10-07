@@ -59,6 +59,7 @@ dependencies {
     implementation(libs.constraintlayout)
     implementation("com.google.ai.client.generativeai:generativeai:0.8.0")
     implementation(libs.firebase.database)
+    implementation(libs.firebase.auth)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)

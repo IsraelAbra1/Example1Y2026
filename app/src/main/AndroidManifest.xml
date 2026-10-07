@@ -37,6 +37,7 @@
         <activity android:name=".AiActivity" />
         <activity android:name=".SettingActivity" />
         <activity android:name=".BooksListActivity" android:exported="false" />
+        <activity android:name=".SignupActivity" android:exported="false" />
     </application>
 
 </manifest>

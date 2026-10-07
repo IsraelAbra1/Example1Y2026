@@ -10,6 +10,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -59,13 +61,21 @@ public class AddBookActivity extends AppCompatActivity {
     }
 
     private void saveBookToFirebase(String title, String author) {
-        String bookId = mDatabase.child("books").push().getKey();
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user == null) {
+            Toast.makeText(this, "משתמש לא מחובר", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        
+        String uid = user.getUid();
+        // Saving the book under the user's specific UID node
+        String bookId = mDatabase.child("users").child(uid).child("books").push().getKey();
         Book book = new Book(title, author);
 
         if (bookId != null) {
-            mDatabase.child("books").child(bookId).setValue(book)
+            mDatabase.child("users").child(uid).child("books").child(bookId).setValue(book)
                     .addOnSuccessListener(aVoid -> {
-                        Toast.makeText(AddBookActivity.this, "הספר '" + title + "' נשמר ב-Firebase!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(AddBookActivity.this, "הספר '" + title + "' נשמר בהצלחה!", Toast.LENGTH_SHORT).show();
                         finish();
                     })
                     .addOnFailureListener(e -> {
